@@ -8,9 +8,9 @@ use std::process;
 const EXIT_SUCCESS: i32 = 0;
 // const EXIT_FAILURE: i32 = 1;
 
-const CELL_SIZE: u32 = 60;
-const GRID_WIDTH: u32 = 30;
-const GRID_HEIGHT: u32 = 30;
+const CELL_SIZE: usize = 60;
+const GRID_WIDTH: usize = 30;
+const GRID_HEIGHT: usize = 30;
 
 fn window_conf() -> Conf {
     Conf {

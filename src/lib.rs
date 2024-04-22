@@ -1,9 +1,9 @@
 pub use life::life::ToroidalGrid;
 use crate::video::graphics;
 
-mod life;
-mod console;
-mod video;
+pub mod life;
+pub mod console;
+pub mod video;
 
 pub async fn emulate(board: &mut ToroidalGrid) {
   loop {

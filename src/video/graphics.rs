@@ -18,18 +18,20 @@ pub async fn graphics(grid: &mut ToroidalGrid) -> bool {
 
 fn draw_screen(grid: &mut ToroidalGrid) {
     let w = screen_width();
-    // let h = screen_height();
+    let h = screen_height();
+    println!("Expected: ({}, {})", grid.width * grid.cell_size, grid.height * grid.cell_size);
+    println!("Reality: ({}, {})", w, h);
 
-    /* Draw cells */
-    for i in 0..(grid.width) {
-      for j in 0..(grid.height) {
-        draw_rectangle((i * grid.cell_size) as f32, (j * grid.cell_size) as f32, (grid.cell_size) as f32, (grid.cell_size) as f32,  if grid.get_toroidal_grid(i as isize, j as isize) == CellOptions::ALIVE {GREEN} else {BLACK});
-      }
-    }
+    // /* Draw cells */
+    // for i in 0..(grid.width) {
+    //   for j in 0..(grid.height) {
+    //     draw_rectangle((i * grid.cell_size) as f32 / w, (j * grid.cell_size) as f32 / h, (grid.cell_size) as f32, (grid.cell_size) as f32,  if grid.get_toroidal_grid(i as isize, j as isize) == CellOptions::ALIVE {GREEN} else {BLACK});
+    //   }
+    // }
 
     /* Draw horizontal lines */
     for i in 1..(grid.height) {
-      draw_line(0 as f32, (i * grid.cell_size) as f32, (grid.width * grid.cell_size) as f32, (i * grid.cell_size) as f32, 1.0, WHITE)
+      draw_line(0 as f32 / w, (i * grid.cell_size) as f32, w, (i * grid.cell_size) as f32 / h, 1.0, WHITE)
     }
 
     /* Draw vertical lines */

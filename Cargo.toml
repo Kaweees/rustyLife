@@ -1,0 +1,20 @@
+[package]
+name = "rusty_life"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+console_engine = "2.6.0"
+macroquad = "0.4.4"
+
+[profile.dev]
+overflow-checks = false
+
+[profile.test]
+overflow-checks = false
+
+[profile.bench]
+overflow-checks = false
+
+[profile.release]
+overflow-checks = false

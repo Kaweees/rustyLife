@@ -1,16 +1,12 @@
 use macroquad::window::Conf;
-mod life;
-use life::life::ToroidalGrid;
-// use crate::life::life::ToroidalGrid;
-
+use rusty_life;
+use console::*;
 use std::process;
 
-const EXIT_SUCCESS: i32 = 0;
-// const EXIT_FAILURE: i32 = 1;
+mod console;
 
-const CELL_SIZE: usize = 60;
-const GRID_WIDTH: usize = 30;
-const GRID_HEIGHT: usize = 30;
+use crate::rusty_life::ToroidalGrid;
+// use rusty_life::ToroidalGrid;
 
 fn window_conf() -> Conf {
     Conf {
@@ -25,9 +21,8 @@ fn window_conf() -> Conf {
 
 #[macroquad::main(window_conf)]
 async fn main() {
-  
-  let board = ToroidalGrid::new(GRID_WIDTH, GRID_HEIGHT); 
-  // rusty_life::emulate(state, io).await;
+  let mut board = ToroidalGrid::new(GRID_WIDTH, GRID_HEIGHT, CELL_SIZE);
+  rusty_life::emulate(&mut board).await;
   process::exit(EXIT_SUCCESS);
 }
 
